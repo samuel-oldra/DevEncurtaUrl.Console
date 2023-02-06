@@ -152,7 +152,7 @@ Console.WriteLine($"Índice do último .NET: {lastIndexOf}");
 
 */
 
-// TODO: Formatar e organizar o programa console.
+// Programa
 
 List<RedirectionLink> links = new List<RedirectionLink> {
     new RedirectionLink(1, "Artigo Mais Recente", "meu.link.encurtado/1234", "luisdev.com.br/2023-1-1/meu-artigo-mais-recente"),
@@ -164,8 +164,20 @@ foreach (var link in links)
     link.DisplayInfo();
 }
 
+
+
 public class RedirectionLink
 {
+    public int Id { get; private set; }
+
+    public string Title { get; private set; }
+
+    public string ShortenedLink { get; private set; }
+
+    public string DestinationLink { get; private set; }
+
+    public string CreatedAt { get; private set; }
+
     public RedirectionLink(int id, string title, string shortenedLink, string destinationLink)
     {
         Id = id;
@@ -176,30 +188,23 @@ public class RedirectionLink
         CreatedAt = DateTime.Now.ToShortDateString();
     }
 
-    public int Id { get; private set; }
-    public string Title { get; private set; }
-    public string ShortenedLink { get; private set; }
-    public string DestinationLink { get; private set; }
-    public string CreatedAt { get; private set; }
-
     public virtual void DisplayInfo()
-    {
-        Console.WriteLine($"Title: {Title}, Shortened Link: {ShortenedLink}, DestinationLink: {DestinationLink}");
-    }
+        => Console.WriteLine($"Title: {Title}, Shortened Link: {ShortenedLink}, DestinationLink: {DestinationLink}");
 }
 
 public class CustomizedRedirectionLink : RedirectionLink
 {
-    public CustomizedRedirectionLink(int id, string title, string shortenedLink, string destinationLink, string customRedirectionLink)
-        : base(id, title, shortenedLink, destinationLink)
-    {
-        CustomRedirectionLink = customRedirectionLink;
-    }
-
     public string CustomRedirectionLink { get; private set; }
 
+    public CustomizedRedirectionLink(
+        int id,
+        string title,
+        string shortenedLink,
+        string destinationLink,
+        string customRedirectionLink)
+        : base(id, title, shortenedLink, destinationLink)
+        => CustomRedirectionLink = customRedirectionLink;
+
     public override void DisplayInfo()
-    {
-        Console.WriteLine($"Title: {Title}, Shortened Link: {ShortenedLink}, DestinationLink: {DestinationLink}, CustomLink: {CustomRedirectionLink}");
-    }
+        => Console.WriteLine($"Title: {Title}, Shortened Link: {ShortenedLink}, DestinationLink: {DestinationLink}, CustomLink: {CustomRedirectionLink}");
 }
