@@ -49,9 +49,11 @@ switch (scoreDifference)
     case > 0:
         Console.WriteLine("Aluno A tem maior nota.");
         break;
+
     case 0:
         Console.WriteLine("Empate.");
         break;
+
     default:
         Console.WriteLine("Aluno B tem maior nota.");
         break;

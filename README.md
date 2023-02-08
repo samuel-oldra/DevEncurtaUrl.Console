@@ -7,3 +7,13 @@ Na Jornada .NET Direto ao Ponto 8.0 foi desenvolvida uma API REST completa de en
 ## Tecnologias e práticas utilizadas
 - .NET 7
 - Programação Orientada a Objetos
+
+## Comandos básicos
+```
+dotnet new gitignore
+dotnet new console -o DevEncurtaUrl.Console
+dotnet build
+dotnet run
+dotnet watch run
+dotnet publish
+```
